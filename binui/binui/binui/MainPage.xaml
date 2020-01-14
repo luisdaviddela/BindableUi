@@ -2,13 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:binui"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="binui.MainPage">
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <StackLayout BindableLayout.ItemsSource="{Binding User.TopFollowers}"
+                         Orientation="Horizontal"
+                         Margin="13,10,0,0">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <controls:CircleImage Source="{Binding}"
+                                              Aspect="AspectFill"
+                                              WidthRequest="44"
+                                              HeightRequest="44"
+                                              BorderColor="LightGray"
+                                              BorderThickness="1"
+                                              Margin="-13,0,0,0" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

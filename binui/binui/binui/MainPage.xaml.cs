@@ -12,6 +12,7 @@ namespace binui
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPage_ViewModel();
         }
     }
 }
